@@ -4,11 +4,13 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, NavLink, Redirect } from 'react-router-dom';
 import RechartsSample from './components/RechartsSample';
 import VictorySample from './components/VictorySample';
+import ChartistSample from './components/ChartistSample';
 import './App.css';
 
 const routes = [
   { name: 'Recharts', path: '/recharts', component: RechartsSample },
-  { name: 'Victory', path: '/victory', component: VictorySample }
+  { name: 'Victory', path: '/victory', component: VictorySample },
+  { name: 'Chartist', path: '/chartist', component: ChartistSample }
 ]
 
 type State = {
