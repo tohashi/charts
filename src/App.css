@@ -5,10 +5,18 @@
 
 .App-header {
   background-color: #222;
-  height: 60px;
   padding: 20px;
   margin-bottom: 20px;
   color: white;
+}
+
+.App-header a {
+  margin: 0 8px;
+  color: #eee;
+}
+
+.App-header a.selected {
+  color: #fbb;
 }
 
 .App-title {

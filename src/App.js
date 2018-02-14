@@ -1,26 +1,44 @@
 // @flow
 
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink, Redirect } from 'react-router-dom';
 import RechartsSample from './components/RechartsSample';
+import VictorySample from './components/VictorySample';
 import './App.css';
 
 const routes = [
-  { name: 'Recharts', path: '/recharts', component: RechartsSample }
+  { name: 'Recharts', path: '/recharts', component: RechartsSample },
+  { name: 'Victory', path: '/victory', component: VictorySample }
 ]
 
-class App extends Component<void> {
+type State = {
+  currentName: string
+}
+
+class App extends Component<void, State> {
+  state = { currentName: '' }
+
   render() {
     return (
       <Router>
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title">{routes.find(r => r.path === window.location.pathname).name}</h1>
+            {routes.map(r => {
+              return (
+                <NavLink
+                  key={r.name}
+                  to={r.path}
+                  activeClassName="selected"
+                >
+                  {r.name}
+                </NavLink>
+              );
+            })}
           </header>
-          <Route path="/">
-            <Redirect to={{ pathname: '/recharts' }} />
+          <Route exact path="/">
+            <Redirect to="/recharts" />
           </Route>
-          <Route path="/recharts" component={RechartsSample} />
+          {routes.map(r => <Route key={r.name} path={r.path} component={r.component} />)}
         </div>
       </Router>
     );
