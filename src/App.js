@@ -5,12 +5,14 @@ import { BrowserRouter as Router, Route, NavLink, Redirect } from 'react-router-
 import RechartsSample from './components/RechartsSample';
 import VictorySample from './components/VictorySample';
 import ChartistSample from './components/ChartistSample';
+import HighchartsSample from './components/HighchartsSample';
 import './App.css';
 
 const routes = [
   { name: 'Recharts', path: '/recharts', component: RechartsSample },
   { name: 'Victory', path: '/victory', component: VictorySample },
-  { name: 'Chartist', path: '/chartist', component: ChartistSample }
+  { name: 'Chartist', path: '/chartist', component: ChartistSample },
+  { name: 'Hicharts', path: '/highcharts', component: HighchartsSample }
 ]
 
 type State = {
