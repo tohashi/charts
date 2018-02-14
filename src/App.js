@@ -39,9 +39,6 @@ class App extends Component<void, State> {
               );
             })}
           </header>
-          <Route exact path="/">
-            <Redirect to="/recharts" />
-          </Route>
           {routes.map(r => <Route key={r.name} path={r.path} component={r.component} />)}
         </div>
       </Router>
